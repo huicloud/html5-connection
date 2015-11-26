@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+<!-- Required for browser reporter -->
+<div id="mocha"></div>
+
+<script src="lib/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            mocha: '../node_modules/mocha/mocha',
+            chai: '../node_modules/chai/chai',
+            connection: '../dist/connection' // connection路径
+        },
+        shim: {
+            'mocha': {
+                exports: 'mocha'
+            }
+        }
+    });
+    require(['connection', 'chai', 'mocha', 'common'], function(connection, chai, mocha) {
+        window.expect = chai.expect;
+        window.connection = connection;
+        mocha.setup('bdd');
+        require(['spec/base'], function() {
+            mocha.run();
+        });
+    });
+</script>
+</body>
+</html>

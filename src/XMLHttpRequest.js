@@ -7,6 +7,8 @@ if (typeof window !== 'undefined') {
   } else {
     console.log('当前浏览器不支持XMLHttpRequest');
   }
+} else if (typeof XMLHttpRequest !== 'undefined') {
+  module.exports = XMLHttpRequest;
 } else {
 
   // nodejs中使用xhr2模块

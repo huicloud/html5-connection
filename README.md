@@ -32,7 +32,7 @@
 3.nodejs
 安装
 
-    npm install https://github.com/huicloud/html5-connection.git
+    npm install git+https://git@github.com/huicloud/html5-connection.git
 
 使用
     

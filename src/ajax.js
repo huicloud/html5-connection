@@ -59,7 +59,7 @@ if (typeof $ !== 'undefined' && typeof $.ajax === 'function' && typeof XDomainRe
 
   $.ajaxSetup({
     xhr: function() {
-      var xhr = generateXHRFun();
+      var xhr = generateXHRFun.call(this);
       this.setXHR(xhr);
       return xhr;
     },
